@@ -1,0 +1,9 @@
+{
+  "name": "pro-calendar",
+  "version": "0.0.0",
+  "description": "ProCalendar",
+  "main": "app.js",
+  "author": {
+    "name": "tvirdee"
+  }
+}

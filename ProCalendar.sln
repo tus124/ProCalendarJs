@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ProCalendar", "ProCalendar\ProCalendar.njsproj", "{F2EBC3EE-519C-486C-AFC2-86608F7236B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2EBC3EE-519C-486C-AFC2-86608F7236B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2EBC3EE-519C-486C-AFC2-86608F7236B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2EBC3EE-519C-486C-AFC2-86608F7236B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2EBC3EE-519C-486C-AFC2-86608F7236B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {056E48C1-C768-45EE-894C-509E9A4E7988}
+	EndGlobalSection
+EndGlobal
