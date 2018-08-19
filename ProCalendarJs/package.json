@@ -1,0 +1,15 @@
+{
+  "name": "pro-calendar",
+  "version": "0.0.0",
+  "description": "ProCalendar",
+  "main": "app.js",
+  "author": {
+    "name": "tvirdee"
+  },
+  "dependencies": {
+    "fullcalendar": "^3.9.0",
+    "fullcalendar-scheduler": "^1.9.4",
+    "http": "0.0.0",
+    "jquery": "^3.3.1"
+  }
+}
