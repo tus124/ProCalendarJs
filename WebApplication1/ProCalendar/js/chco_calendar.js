@@ -11,7 +11,7 @@ $(document).ready(function () {
 });
 
 function configGet() {
-    debugger;
+    //debugger;
     var deferred = $.Deferred();
     $.ajax({
         type: "GET",
@@ -57,7 +57,7 @@ function configGet() {
 }
 
 function eventsGet(configs) {
-    debugger;
+    //debugger;
     console.log("config:");
     console.log(configs);
     var promises = [];
@@ -78,11 +78,14 @@ function eventsGet(configs) {
                 //pcx_description
                 configs[k].pcx_tooltipfield;
             //"pcx_enddate,pcx_location,pcx_startdate&$filter=pcx_startdate gt 2018-06-01T04:00:00.000Z and  pcx_enddate lt 2018-06-30T04:00:00.000Z",
+
             if (configs[k].pcx_calendarentityname == "appointment") {
                 url = url + '&$filter= ' + configs[k].pcx_startdatefield + ' ge ' + firstDay + ' and ' + configs[k].pcx_enddatefield + ' le ' + lastDay + ' and contains(pcx_attendies,\'' + window.parent.Xrm.Page.context.getUserName() + '\')';
             }
-            else
+            else {
                 url = url + '&$filter= ' + configs[k].pcx_startdatefield + ' ge ' + firstDay + ' and ' + configs[k].pcx_enddatefield + ' le ' + lastDay + ' and _' + configs[k].pcx_partyfield + '_value eq ' + window.parent.Xrm.Page.context.getUserId().replace("{", "").replace("}", "");
+            }
+
             console.log(url);
 
             promises.push($.ajax({
@@ -104,8 +107,13 @@ function eventsGet(configs) {
                     j = j + 1;
                     for (var i = 0; i < results.value.length; i++) {
                         var event = {};
+
+                        console.log("results.value[" + i + "]:");
                         console.log(results.value[i]);
+
                         if (configs[j].pcx_calendarentityname == "appointment") {
+                            console.log(results.value[i]["activityid"]);
+
                             event.id = results.value[i]["activityid"];
                         }
                         else {
@@ -118,8 +126,10 @@ function eventsGet(configs) {
                         event.allDay = false;
                         event.entity = configs[j].pcx_calendarentityname;
                         event.color = configs[j].pcx_hexcolorcode;
+                        event.url = window.parent.Xrm.Page.context.getClientUrl() + "/userdefined/edit.aspx?etc=10005&id=%7b" + results.value[i].chco_eventid + "%7d";;
 
                         events.push(event);
+
                         /*
                         _owningteam_value = results.value[i]["_owningteam_value"];
                         var _owningteam_value_formatted = results.value[i]["_owningteam_value@OData.Community.Display.V1.FormattedValue"];
@@ -148,6 +158,7 @@ function eventsGet(configs) {
     });
 }
 
+
 function renderCal(events) {
     console.log("rendering cal");
     console.log(events)
@@ -155,7 +166,7 @@ function renderCal(events) {
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay,listWeek'
+            right: 'listYear, month,listMonth agendaWeek,agendaDay,listWeek'
         },
         eventMouseover: function (data, event, view) {
             console.log(data);
@@ -190,17 +201,24 @@ function renderCal(events) {
         viewDisplay: function () {
             tooltip.hide()
         },
-        eventClick: function (calEvent, jsEvent, view) {
-            windowOptions = {
-                entityName: calEvent.entity,
-                entityId: calEvent.id,
-                openInNewWindow: true,
-                navBar: "off",
-                cmdbar: true,
-                width: 1000,
-                height: 600
-            };
-            parent.Xrm.Navigation.openForm(windowOptions, null).then(
+        eventClick:
+
+            function (event) {
+                window.open(event.url, null, "resizable,scrollbars,status");
+                return false;
+            }
+
+        /*function(calEvent, jsEvent, view) {
+          windowOptions = {
+              entityName: calEvent.entity,
+              entityId: calEvent.id,
+              openInNewWindow: true,
+              navBar: "on",
+              cmdbar: true,
+              width: 1000,
+              height: 600
+          };
+          parent.Xrm.Navigation.openForm(windowOptions, null).then(
                 function (success) {
                     console.log("success");
                     console.log(success);
@@ -209,9 +227,12 @@ function renderCal(events) {
                     console.log("error");
                     console.log(error);
                 }
-            );
+           );
 
-        },
+      }*/
+
+
+        ,
         defaultDate: Date.now(),
         navLinks: true, // can click day/week names to navigate views
 
@@ -223,5 +244,4 @@ function renderCal(events) {
         eventLimit: true, // allow "more" link when too many events
         events: events
     });
-
 }
