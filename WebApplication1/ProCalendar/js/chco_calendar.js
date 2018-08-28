@@ -130,18 +130,6 @@ function eventsGet(configs) {
 
                         events.push(event);
 
-                        /*
-                        _owningteam_value = results.value[i]["_owningteam_value"];
-                        var _owningteam_value_formatted = results.value[i]["_owningteam_value@OData.Community.Display.V1.FormattedValue"];
-                        var _owningteam_value_lookuplogicalname = results.value[i]["_owningteam_value@Microsoft.Dynamics.CRM.lookuplogicalname"];
-                        var _owninguser_value = results.value[i]["_owninguser_value"];
-                        var _owninguser_value_formatted = results.value[i]["_owninguser_value@OData.Community.Display.V1.FormattedValue"];
-                        var _owninguser_value_lookuplogicalname = results.value[i]["_owninguser_value@Microsoft.Dynamics.CRM.lookuplogicalname"];
-                        var pcx_caseplaneventname = results.value[i]["pcx_caseplaneventname"];
-                        var pcx_enddate = results.value[i]["pcx_enddate"];
-                        var pcx_location = results.value[i]["pcx_location"];
-                        var pcx_startdate = results.value[i]["pcx_startdate"];
-                        */
                     }
                     console.log("events:");
                     console.log(events);
@@ -243,5 +231,28 @@ function renderCal(events) {
         editable: true,
         eventLimit: true, // allow "more" link when too many events
         events: events
+    });
+
+
+
+    // build the locale selector's options
+    $.each($.fullCalendar.locales, function (localeCode) {
+        $('#locale-selector').append(
+            $('<option/>')
+                .attr('value', localeCode)
+                .prop('selected', localeCode == initialLocaleCode)
+                .text(localeCode));
+    });
+
+    // when the selected option changes, dynamically change the calendar option
+    $('#locale-selector').on('change', function () {
+        if (this.value) {
+            $('#calendar').fullCalendar('option', 'locale', this.value);
+        }
+    });
+
+    // when the timezone selector changes, dynamically change the calendar option
+    $('#timezone-selector').on('change', function () {
+        $('#calendar').fullCalendar('option', 'timezone', this.value || false);
     });
 }

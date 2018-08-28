@@ -6,22 +6,48 @@
 
     <link href="../css/fullcalendar.min.css" rel="stylesheet">
     <link href="../css/fullcalendar.print.min.css" rel="stylesheet" media="print">
+    <link href="../css/jquery-ui.css" rel="stylesheet">
     <style href="../css/demo_calendar.css" rel="stylesheet"></style>
+
 
     <script src="../js/lib/moment.min.js"></script>
     <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+
+
     <script src="../js/fullcalendar.js"></script>
     <script src="../js/locale-all.js"></script>
+    <script src="../js/promise.min.js"></script>
+    <script src="../js/underscore-min.js"></script>
+
     <script src="../js/demo_calendar.js"></script>
+    
+
 </head>
 <body>
-    <div id='top'>
-        Locales: <select id='locale-selector'></select>
-        Timezone: 
+    <div id="calContainer">
+    </div>
+    <div id='top' class="top">
+        Locales: <select id='locale-selector'></select>&nbsp;&nbsp;
+        Timezone:
         <select id='timezone-selector'>
             <option value='' selected>none</option>
-        </select>
+            <option value='local'>local</option>
+            <option value='UTC'>UTC</option>
+        </select>&nbsp;&nbsp;
+        Filter:
+        <select id='filter-selector'>
+            <option value='all'>All</option>
+            <option value='user'>User</option>
+        </select>&nbsp;&nbsp;
+
+        <span id="search-events-components" style="float:right">
+            <input id="search-event-selector" class="searchEvents" title="Type an event" placeholder="Search for events...">
+        </span>
     </div>
+
+    
+
     <br />
     <div id='calendar'></div>
 </body>

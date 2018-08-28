@@ -157,7 +157,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProCalendar\css\demo_calendar.css" />
+    <Content Include="ProCalendar\css\jquery-ui.min.css" />
     <Content Include="ProCalendar\html\demoCalendarView.html" />
+    <Content Include="ProCalendar\img\searchicon.png" />
+    <Content Include="ProCalendar\js\demo_calendar - Copy.js" />
     <Content Include="ProCalendar\js\demo_calendar.js" />
     <Content Include="ProCalendar\js\demos\json\events.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -265,6 +268,8 @@
     <Content Include="ProCalendar\js\locale\zh-cn.js" />
     <Content Include="ProCalendar\js\locale\zh-tw.js" />
     <Content Include="ProCalendar\js\moment.js" />
+    <Content Include="ProCalendar\js\promise.min.js" />
+    <Content Include="ProCalendar\js\underscore-min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

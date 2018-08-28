@@ -3,15 +3,31 @@
     <link href="../css/fullcalendar.min.css" rel="stylesheet">
     <link href="../css/fullcalendar.print.min.css" rel="stylesheet" media="print">
     <link href="../css/chco_calendar.css" rel="stylesheet">
-</head>
-<body style="overflow-wrap: break-word;">
-    <div id="calContainer">
-        <div id="calendar"></div>
-    </div>
 
     <script src="../js/moment.min.js"></script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/fullcalendar.min.js"></script>
     <script src="../js/chco_calendar.js"></script>
+</head>
+<body style="overflow-wrap: break-word;">
+    <div id="calContainer">
+
+    </div>
+
+    <div id='top'>
+        <span id='locale-component'>
+            Locales: <select id='locale-selector'></select>&nbsp; &nbsp;
+        </span>
+
+        Timezone:
+        <select id='timezone-selector'>
+            <option value='' selected>none</option>
+            <option value='local'>local</option>
+            <option value='UTC'>UTC</option>
+        </select>&nbsp; &nbsp;
+    </div>
+
+    <div id="calendar"></div>
+
 </body>
 </html>
