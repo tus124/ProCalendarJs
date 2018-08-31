@@ -140,6 +140,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ProCalendar\css\bootstrap-3.3.2.min.css" />
+    <Content Include="ProCalendar\css\bootstrap-multiselect.css" />
+    <Content Include="ProCalendar\css\bootstrap.css" />
+    <Content Include="ProCalendar\css\bootstrap.min.css" />
     <Content Include="ProCalendar\css\chco_calendar.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -157,12 +161,19 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProCalendar\css\demo_calendar.css" />
+    <Content Include="ProCalendar\css\example-styles.css" />
+    <Content Include="ProCalendar\css\fSelect.css" />
     <Content Include="ProCalendar\css\jquery-ui.min.css" />
+    <Content Include="ProCalendar\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ProCalendar\html\demoCalendarView.html" />
     <Content Include="ProCalendar\img\searchicon.png" />
     <Content Include="ProCalendar\js\demo_calendar - Copy.js" />
     <Content Include="ProCalendar\js\demo_calendar.js" />
     <Content Include="ProCalendar\js\demos\json\events.json" />
+    <Content Include="ProCalendar\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ProCalendar\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ProCalendar\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ProCalendar\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="ProCalendar\html\calendarview.html" />
     <Content Include="ProCalendar\js\chco_calendar.js" />
@@ -184,6 +195,7 @@
     <Content Include="ProCalendar\js\demos\timezones.html" />
     <Content Include="ProCalendar\js\demos\week-numbers.html" />
     <Content Include="ProCalendar\css\fullcalendar.css" />
+    <Content Include="ProCalendar\js\lib\fSelect.js" />
     <Content Include="ProCalendar\js\fullcalendar.js" />
     <Content Include="ProCalendar\css\fullcalendar.min.css" />
     <Content Include="ProCalendar\js\fullcalendar.min.js" />
@@ -192,8 +204,12 @@
     <Content Include="ProCalendar\js\gcal.js" />
     <Content Include="ProCalendar\js\gcal.min.js" />
     <Content Include="ProCalendar\js\jquery-3.3.1.js" />
+    <Content Include="ProCalendar\js\lib\bootstrap-3.3.2.min.js" />
+    <Content Include="ProCalendar\js\lib\bootstrap.min.js" />
+    <Content Include="ProCalendar\js\lib\jquery-2.2.4.min.js" />
     <Content Include="ProCalendar\js\lib\jquery-ui.min.js" />
     <Content Include="ProCalendar\js\lib\jquery.min.js" />
+    <Content Include="ProCalendar\js\lib\jquery.multi-select.js" />
     <Content Include="ProCalendar\js\lib\moment.min.js" />
     <Content Include="ProCalendar\js\locale-all.js" />
     <Content Include="ProCalendar\js\locale\af.js" />
@@ -270,6 +286,7 @@
     <Content Include="ProCalendar\js\moment.js" />
     <Content Include="ProCalendar\js\promise.min.js" />
     <Content Include="ProCalendar\js\underscore-min.js" />
+    <Content Include="ProCalendar\js\lib\bootstrap-multiselect.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

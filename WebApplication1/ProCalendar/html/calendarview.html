@@ -2,16 +2,25 @@
 <head>
     <link href="../css/fullcalendar.min.css" rel="stylesheet">
     <link href="../css/fullcalendar.print.min.css" rel="stylesheet" media="print">
+
     <link href="../css/chco_calendar.css" rel="stylesheet">
+    <link href="../css/jquery_ui.css" rel="stylesheet">
+    <link href="../css/fSelect.css" rel="stylesheet">
+
 
     <script src="../js/moment.min.js"></script>
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery_ui.js"></script>
+    <script src="../js/fSelect.js"></script>
+
+
     <script src="../js/fullcalendar.min.js"></script>
+    <script src="../js/promise.min.js"></script>
+    <script src="../js/underscore.min.js"></script>
     <script src="../js/chco_calendar.js"></script>
 </head>
 <body style="overflow-wrap: break-word;">
     <div id="calContainer">
-
     </div>
 
     <div id='top'>
@@ -25,9 +34,33 @@
             <option value='local'>local</option>
             <option value='UTC'>UTC</option>
         </select>&nbsp; &nbsp;
+
+
+        Calendar Type:
+        <select id='calendartype-selector'>
+            <option value='Master'>Master</option>
+            <option value='Components'>Components</option>
+            <option value='Target-Audiences'>Target-Audiences</option>
+            <option value='User' selected>User</option>
+        </select>
+
+        &nbsp; &nbsp;
+        <span id='username-display'>All Users</span>
+
+        <span id='businessUnits-component'>
+            Component:&nbsp; &nbsp;<select id='businessunit-selector' multiple="multiple"></select>
+        </span>
+
+        <span id='target-audiences-component'>
+            Target-Audiences:&nbsp; &nbsp;<select id='target-audiences-selector' multiple="multiple"></select>
+        </span>
+
+
+        <span id="search-events-components" style="float:right; vertical-align: center">
+            <input id="search-event-selector" title="Type an event" placeholder="Search for events...">
+        </span>
     </div>
-
+    <br />
     <div id="calendar"></div>
-
 </body>
 </html>

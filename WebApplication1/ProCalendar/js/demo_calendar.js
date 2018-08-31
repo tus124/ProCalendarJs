@@ -1,8 +1,4 @@
-﻿
-var date;
-var firstDay;
-var lastDay;
-var initialLocaleCode = 'en';
+﻿var initialLocaleCode = 'en';
 
 var america_timezones = [
     'America/Adak',
@@ -38,11 +34,11 @@ var america_timezones = [
 
 
 $(document).ready(function () {
-    date = new Date();
-    firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString();
-    lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString();
- 
+  
     testCalendarDemo();
+
+    $('#multi-filter-selector').fSelect();
+  
 });
 
 
@@ -52,7 +48,7 @@ function testCalendarDemo() {
     var deferred = $.Deferred();
     
 
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 100; i++) {
         var event = {};
 
         var randomMonth = Math.floor(Math.random() * 12);
@@ -66,7 +62,7 @@ function testCalendarDemo() {
         event.title = "Meeting " + i.toString();
         event.tooltip = "";
         event.allDay = false;
-
+        event.url = "https://www.google.com";
         allEvents.push(event);
     }
 
@@ -94,7 +90,29 @@ function testCalendarDemo() {
         },
         select: function (startDate, endDate) {
             console.log('select', startDate.format(), endDate.format());
-        }
+        },
+        eventMouseover: function (data, event, view) {
+            //console.log(data);
+            //console.log(view.name);
+            if (view.name == "month") {
+                tooltip = '<div class="tooltiptopicevent" style="width:auto;height:auto;background:#feb811;position:absolute;z-index:10001;padding:10px 10px 10px 10px ;  line-height: 200%;">' + 'Title ' + ': ' + data.title + '</br>' + 'Start ' + ': ' + moment(data.start).format("ll") + '</br>' + 'End ' + ': ' + moment(data.end).format("ll") + '</div>';
+                $("#calContainer").append(tooltip);
+                $(this).mouseover(function (e) {
+                    $(this).css('z-index', 10000);
+                    $('.tooltiptopicevent').fadeIn('500');
+                    $('.tooltiptopicevent').fadeTo('10', 1.9);
+                }).mousemove(function (e) {
+                    $('.tooltiptopicevent').css('top', e.pageY + 10);
+                    $('.tooltiptopicevent').css('left', e.pageX + 20);
+                });
+            }
+        },
+        eventMouseout: function (data, event, view) {
+            if (view.name == "month") {
+                $(this).css('z-index', 8);
+                $('.tooltiptopicevent').remove();
+            }
+        },
     });
 
     // build the locale selector's options
@@ -140,6 +158,7 @@ function testCalendarDemo() {
             event.end = new Date(2018, 09, randomDay, randomHour + 2);
             event.title = "Meeting " + i.toString();
             event.tooltip = "";
+            event.url = "https://www.google.com";
             event.allDay = false;
 
             usersFilterEvents.push(event);
@@ -152,22 +171,48 @@ function testCalendarDemo() {
         if (filterType == "user") {
             $('#calendar').fullCalendar('addEventSource', usersFilterEvents);
             console.log('user events are added');
+
+            $("#search-event-selector").autocomplete({
+                source: _.pluck(usersFilterEvents,  'title')
+
+                //{ value: "www.foo.com",
+                // label: "Spencer Kline"
+            
+            });
         }
         if (filterType == "all") {
             $('#calendar').fullCalendar('addEventSource', allEvents);
             console.log('all events are added');
+
+            $("#search-event-selector").autocomplete({
+                source: _.pluck(allEvents, 'title')
+            });
+        }
+    });
+
+
+    console.log('allEvents');
+    console.log(allEvents);
+
+
+    //var allEventsNames = _.pluck(allEvents, 'title');
+    
+    var allEventsNames = _.map(allEvents, function (item) {
+        return { value: item.url, label: item.title }
+    });
+    console.log('allEventsNames');
+    console.log(allEventsNames);
+
+
+    $("#search-event-selector").autocomplete({
+        source: allEventsNames,
+        select: function (event, ui) {
+            window.location.href = ui.item.value;
         }
 
     });
 
-    console.log('allEventsCount...' + allEvents.length);
-    var allEventsNames = _.pluck(allEvents, 'title');
-    console.log('allEventsNamesCount...' + allEventsNames.length);
-
-
-    $("#search-event-selector").autocomplete({
-        source: allEventsNames
-    });
+    
 }
 
 

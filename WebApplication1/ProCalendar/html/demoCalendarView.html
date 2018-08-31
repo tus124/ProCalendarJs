@@ -7,46 +7,68 @@
     <link href="../css/fullcalendar.min.css" rel="stylesheet">
     <link href="../css/fullcalendar.print.min.css" rel="stylesheet" media="print">
     <link href="../css/jquery-ui.css" rel="stylesheet">
-    <style href="../css/demo_calendar.css" rel="stylesheet"></style>
+    <link href="../css/fSelect.css" rel="stylesheet">
+    <!--<link href="../css/bootstrap-3.3.2.min.css" rel="stylesheet" />-->
+    <!--<link href="../css/bootstrap-multiselect.css" rel="stylesheet" />-->
 
+    <style href="../css/demo_calendar.css" rel="stylesheet"></style>
+    
+    
 
     <script src="../js/lib/moment.min.js"></script>
-    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/jquery-2.2.4.min.js"></script>
     <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/jquery.multi-select.js"></script>
+
+    <script src="../js/lib/fSelect.js"></script>
+
+    <!--<script src="../js/lib/bootstrap-3.3.2.min.js"></script>-->
+    <!--<script src="../js/lib/bootstrap-multiselect.js"></script-->
+
 
 
     <script src="../js/fullcalendar.js"></script>
     <script src="../js/locale-all.js"></script>
     <script src="../js/promise.min.js"></script>
     <script src="../js/underscore-min.js"></script>
-
     <script src="../js/demo_calendar.js"></script>
-    
-
 </head>
 <body>
-    <div id="calContainer">
-    </div>
-    <div id='top' class="top">
+    <div id="calContainer"></div>
+    <div id='top'>
         Locales: <select id='locale-selector'></select>&nbsp;&nbsp;
+
         Timezone:
         <select id='timezone-selector'>
             <option value='' selected>none</option>
             <option value='local'>local</option>
             <option value='UTC'>UTC</option>
         </select>&nbsp;&nbsp;
+
         Filter:
         <select id='filter-selector'>
             <option value='all'>All</option>
             <option value='user'>User</option>
+            <option value='component'>Components</option>
         </select>&nbsp;&nbsp;
 
-        <span id="search-events-components" style="float:right">
+        Search:
+        <span id="search-events-components">
             <input id="search-event-selector" class="searchEvents" title="Type an event" placeholder="Search for events...">
-        </span>
-    </div>
+        </span>&nbsp;&nbsp
 
-    
+        Multi-Filter:
+        <select id="multi-filter-selector" multiple="multiple">
+            <option value="Component1">Component-1</option>
+            <option value="Component2">Component-2</option>
+            <option value="Component3">Component-3</option>
+            <option value="Component4">Component-4</option>
+        </select>&nbsp;&nbsp;
+
+
+
+
+    </div>
 
     <br />
     <div id='calendar'></div>

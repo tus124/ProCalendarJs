@@ -6,8 +6,9 @@
 }
 
 #top {
-    background: #eee;
-    border-bottom: 1px, solid #eee;
+    background: lightgrey;
+    background-color: lightgrey;
+    border-bottom: 1px, solid lightgrey;
     padding: 0 10px;
     line-height: 40px;
     font-size: 12px;
@@ -30,3 +31,8 @@
     background-position: 10px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
 }
+
+
+
+
+
